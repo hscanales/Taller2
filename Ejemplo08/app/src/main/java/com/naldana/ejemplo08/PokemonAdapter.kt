@@ -4,14 +4,25 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import com.naldana.ejemplo08.models.Pokemon
 import kotlinx.android.synthetic.main.list_element_pokemon.view.*
 
 class PokemonAdapter(val items: List<Pokemon>) : RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
 
+    // TODO: Para contar elementos creados
+    private var countViews: Int = 0
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.list_element_pokemon, parent, false)
+
+        /*
+         * TODO: Muestra el valor de contador de view creadas solo se hace aqui, para asegurar
+         * que solo se asigne el valor aqui
+         */
+        view.findViewById<TextView>(R.id.count_element).text = countViews.toString()
+        countViews++
         return ViewHolder(view)
     }
 
