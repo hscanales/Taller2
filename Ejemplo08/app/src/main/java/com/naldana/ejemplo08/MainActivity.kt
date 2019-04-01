@@ -2,6 +2,7 @@ package com.naldana.ejemplo08
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import com.naldana.ejemplo08.models.Pokemon
@@ -9,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var viewAdapter: RecyclerView.Adapter<*>
+    private lateinit var viewAdapter: PokemonAdapter
     private lateinit var viewManager: RecyclerView.LayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +27,7 @@ class MainActivity : AppCompatActivity() {
             Pokemon(i,"Name" + i, "Tyep " + i)
         }
 
-        viewManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
+        viewManager = LinearLayoutManager(this)
 
         viewAdapter = PokemonAdapter(pokemon)
 
