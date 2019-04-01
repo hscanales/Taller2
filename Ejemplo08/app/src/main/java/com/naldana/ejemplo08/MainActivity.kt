@@ -26,7 +26,8 @@ class MainActivity : AppCompatActivity() {
             Pokemon(i,"Name" + i, "Tyep " + i)
         }
 
-        viewManager = LinearLayoutManager(this)
+        viewManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
+
         viewAdapter = PokemonAdapter(pokemon)
 
         rv_pokemon_list.apply {
